@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         //then use this activity to host it in a fragment container
         //in activity_main.xml
         if (currentFragment == null) {
-            val fragment = CrimeFragment()
+            val fragment = CrimeListFragment.newInstance()
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment_container, fragment)
