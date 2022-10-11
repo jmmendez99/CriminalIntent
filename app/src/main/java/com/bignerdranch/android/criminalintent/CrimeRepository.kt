@@ -30,6 +30,9 @@ class CrimeRepository private constructor(context: Context){
             }
         }
 
+        //?: means take the right hand argument if the left hand
+        //argument is null. In this case, INSTANCE can be null,
+        //so that's why we do that.
         fun get(): CrimeRepository {
             return INSTANCE ?:
             throw IllegalStateException("CrimeRepository must be initialized")
