@@ -1,6 +1,7 @@
 package com.bignerdranch.android.criminalintent
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.room.Room
 import database.CrimeDatabase
 import java.util.*
@@ -25,9 +26,9 @@ class CrimeRepository private constructor(context: Context){
     //Being able to call the DAO functions like this instead
     //of having their implementations in this class makes this
     //class cleaner and easier to understand.
-    fun getCrimes(): List<Crime> = crimeDao.getCrimes()
+    fun getCrimes(): LiveData<List<Crime>> = crimeDao.getCrimes()
 
-    fun getCrime(id: UUID): Crime? = crimeDao.getCrime(id)
+    fun getCrime(id: UUID): LiveData<Crime?> = crimeDao.getCrime(id)
 
     //This code is to initialize CrimeRepository so that it can
     //be accessed by other components in our app.
